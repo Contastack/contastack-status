@@ -40,19 +40,19 @@
     "url": "https://contastack.app/api/health",
     "icon": "https://contastack.app/favicon.ico",
     "slug": "core-api-and-base-de-datos",
-    "status": "down",
-    "uptime": "35.27%",
-    "uptimeDay": "35.27%",
-    "uptimeWeek": "35.27%",
-    "uptimeMonth": "35.27%",
-    "uptimeYear": "35.27%",
-    "time": 286,
-    "timeDay": 286,
-    "timeWeek": 286,
-    "timeMonth": 286,
-    "timeYear": 286,
+    "status": "up",
+    "uptime": "0.85%",
+    "uptimeDay": "0.85%",
+    "uptimeWeek": "0.85%",
+    "uptimeMonth": "0.85%",
+    "uptimeYear": "0.85%",
+    "time": 223,
+    "timeDay": 223,
+    "timeWeek": 223,
+    "timeMonth": 223,
+    "timeYear": 223,
     "dailyMinutesDown": {
-      "2026-10-12": 0
+      "2026-10-12": 45
     }
   },
   {
@@ -132,19 +132,19 @@
     "url": "https://contastack.app/api/media",
     "icon": "https://contastack.app/favicon.ico",
     "slug": "almacenamiento-de-multimedia-e-imagenes",
-    "status": "down",
-    "uptime": "63.40%",
-    "uptimeDay": "63.40%",
-    "uptimeWeek": "63.40%",
-    "uptimeMonth": "63.40%",
-    "uptimeYear": "63.40%",
-    "time": 290,
-    "timeDay": 290,
-    "timeWeek": 290,
-    "timeMonth": 290,
-    "timeYear": 290,
+    "status": "up",
+    "uptime": "0.69%",
+    "uptimeDay": "0.69%",
+    "uptimeWeek": "0.69%",
+    "uptimeMonth": "0.69%",
+    "uptimeYear": "0.69%",
+    "time": 202,
+    "timeDay": 202,
+    "timeWeek": 202,
+    "timeMonth": 202,
+    "timeYear": 202,
     "dailyMinutesDown": {
-      "2026-10-12": 0
+      "2026-10-12": 45
     }
   }
 ]
