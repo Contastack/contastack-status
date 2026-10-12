@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Verificar expiración de certificados
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
         run: |
           DOMAINS=("contastack.app" "app.contastack.app")
           THRESHOLD_DAYS=14
