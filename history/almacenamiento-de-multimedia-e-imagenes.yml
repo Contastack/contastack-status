@@ -1,7 +1,7 @@
 url: https://contastack.app/api/media
-status: down
-code: 405
-responseTime: 290
-lastUpdated: 2026-10-12T21:09:41.390Z
+status: up
+code: 200
+responseTime: 113
+lastUpdated: 2026-10-12T21:54:36.177Z
 startTime: 2026-10-12T21:09:28.708Z
 generator: Upptime <https://github.com/upptime/upptime>
