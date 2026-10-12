@@ -1,7 +1,7 @@
 url: https://contastack.app/api/health
-status: down
-code: 404
-responseTime: 286
-lastUpdated: 2026-10-12T21:09:22.779Z
+status: up
+code: 200
+responseTime: 160
+lastUpdated: 2026-10-12T21:54:30.515Z
 startTime: 2026-10-12T21:09:09.943Z
 generator: Upptime <https://github.com/upptime/upptime>
