@@ -11,6 +11,7 @@ Página pública de estado y monitoreo en tiempo real para **ContaStack** alojad
 ## 🚀 Despliegue en 3 Pasos
 
 ### 1. Crear el repositorio en GitHub
+
 1. Crea un nuevo repositorio en tu cuenta u organización de GitHub (por ejemplo, `contastack-status`).
 2. Sube los archivos de este directorio:
    ```bash
@@ -24,7 +25,9 @@ Página pública de estado y monitoreo en tiempo real para **ContaStack** alojad
    ```
 
 ### 2. Configurar el Secreto `GH_PAT` (Personal Access Token)
+
 Upptime necesita permisos para hacer commits automáticos en el historial de uptime y crear issues:
+
 1. Ve a **GitHub** > **Settings** > **Developer settings** > **Personal access tokens** > **Tokens (classic)**.
 2. Crea un nuevo token con alcances:
    - `repo` (Acceso completo a repositorios)
@@ -32,16 +35,19 @@ Upptime necesita permisos para hacer commits automáticos en el historial de upt
 3. Copia el token generado.
 4. En tu repositorio `contastack-status`, ve a **Settings** > **Secrets and variables** > **Actions** > **New repository secret**.
 5. Nombre: `GH_PAT`
-6. Valor: *(Pega el token generado)*
+6. Valor: _(Pega el token generado)_
 
 ### 3. Configurar el Dominio en DNS (`status.contastack.app`)
+
 En tu proveedor de DNS (Cloudflare, Namecheap, etc.):
+
 - **Tipo de registro:** `CNAME`
 - **Nombre / Host:** `status`
 - **Destino / Valor:** `<tu-usuario>.github.io`
-- *(Si usas Cloudflare, activa inicialmente el modo "Solo DNS / Nube gris" para permitir que GitHub genere el certificado SSL gratis).*
+- _(Si usas Cloudflare, activa inicialmente el modo "Solo DNS / Nube gris" para permitir que GitHub genere el certificado SSL gratis)._
 
 ### 4. Activar GitHub Pages
+
 1. Ve a tu repositorio en GitHub > **Settings** > **Pages**.
 2. En **Build and deployment** > **Source**, selecciona `Deploy from a branch`.
 3. Rama: `gh-pages` / Directorio: `/ (root)`.
@@ -51,14 +57,14 @@ En tu proveedor de DNS (Cloudflare, Namecheap, etc.):
 
 ## 🛠️ Servicios Monitoreados
 
-| Servicio | Endpoint | Tipo |
-| :--- | :--- | :--- |
-| **🌐 Web Landing** | `https://contastack.app/` | HTTP 200 |
-| **💻 Panel SaaS** | `https://app.contastack.app/` | HTTP 200 |
-| **⚡ Core API & Base de Datos** | `https://contastack.app/api/health` | HTTP 200 (`operational`) |
-| **🔐 Autenticación (Clerk)** | `https://contastack.app/sign-in` | HTTP 200 |
-| **📊 Estado Global Clerk** | `https://status.clerk.com/` | HTTP 200 |
-| **💳 Pasarela de Pagos (Polar.sh)**| `https://status.polar.sh/` | HTTP 200 |
-| **🎫 Soporte y Chat en Vivo** | `https://contastack.app/api/tickets?ping=true` | HTTP 200 / 401 |
-| **🖼️ Almacenamiento de Multimedia**| `https://contastack.app/api/media` | HTTP 200 |
-| **🔒 Expiración de Certificados SSL**| `contastack.app` & `app.contastack.app` | Alerta programada a 14 días |
+| Servicio                              | Endpoint                                       | Tipo                        |
+| :------------------------------------ | :--------------------------------------------- | :-------------------------- |
+| **🌐 Web Landing**                    | `https://contastack.app/`                      | HTTP 200                    |
+| **💻 Panel SaaS**                     | `https://app.contastack.app/`                  | HTTP 200                    |
+| **⚡ Core API & Base de Datos**       | `https://contastack.app/api/health`            | HTTP 200 (`operational`)    |
+| **🔐 Autenticación (Clerk)**          | `https://contastack.app/sign-in`               | HTTP 200                    |
+| **📊 Estado Global Clerk**            | `https://status.clerk.com/`                    | HTTP 200                    |
+| **💳 Pasarela de Pagos (Polar.sh)**   | `https://status.polar.sh/`                     | HTTP 200                    |
+| **🎫 Soporte y Chat en Vivo**         | `https://contastack.app/api/tickets?ping=true` | HTTP 200 / 401              |
+| **🖼️ Almacenamiento de Multimedia**   | `https://contastack.app/api/media`             | HTTP 200                    |
+| **🔒 Expiración de Certificados SSL** | `contastack.app` & `app.contastack.app`        | Alerta programada a 14 días |
