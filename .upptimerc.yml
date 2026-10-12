@@ -1,0 +1,82 @@
+# ==============================================================================
+# ContaStack - Configuración de Monitoreo con Upptime y GitHub Actions
+# ==============================================================================
+
+owner: Contastack # Cambia esto por tu usuario u organización de GitHub
+repo: contastack-status # Nombre del repositorio en GitHub
+
+sites:
+  - name: 🌐 Web Landing
+    url: https://contastack.app/
+    icon: https://contastack.app/favicon.ico
+    check-status-codes: 200
+
+  - name: 💻 Panel SaaS (Dashboard)
+    url: https://app.contastack.app/
+    icon: https://contastack.app/favicon.ico
+    check-status-codes: 200
+
+  - name: ⚡ Core API & Base de Datos
+    url: https://contastack.app/api/health
+    icon: https://contastack.app/favicon.ico
+    expectedStatusCodes:
+      - 200
+
+  - name: 🔐 Servicio de Autenticación (Clerk Portal)
+    url: https://contastack.app/sign-in
+    icon: https://contastack.app/favicon.ico
+    expectedStatusCodes:
+      - 200
+
+  - name: 📊 Estado Global Clerk (Infraestructura Auth)
+    url: https://status.clerk.com/
+    icon: https://clerk.com/favicon.ico
+    expectedStatusCodes:
+      - 200
+
+  - name: 💳 Pasarela de Pagos (Polar.sh)
+    url: https://status.polar.sh/
+    icon: https://polar.sh/favicon.ico
+    expectedStatusCodes:
+      - 200
+
+  - name: 🎫 Módulo de Soporte y Chat en Vivo
+    url: https://contastack.app/api/tickets?ping=true
+    icon: https://contastack.app/favicon.ico
+    expectedStatusCodes:
+      - 200
+      - 401
+
+  - name: 🖼️ Almacenamiento de Multimedia e Imágenes
+    url: https://contastack.app/api/media
+    icon: https://contastack.app/favicon.ico
+    expectedStatusCodes:
+      - 200
+
+status-website:
+  cname: status.contastack.app
+  logoUrl: https://contastack.app/contastack-logo.png
+  name: ContaStack Status
+  introTitle: "**ContaStack** · Estado de los Servicios"
+  introMessage: "Monitoreo en tiempo real de la disponibilidad de la plataforma web, panel de control, base de datos Neon PostgreSQL y servicios satélite."
+  navbar:
+    - title: Ir a ContaStack
+      href: https://contastack.app
+    - title: Panel de Clientes
+      href: https://app.contastack.app
+    - title: Ayuda y Soporte
+      href: https://contastack.app/ayuda
+
+# Comprobaciones automáticas
+user-agent: ContaStack-Status-Monitor/1.0
+
+# Internacionalización en español
+i18n:
+  activeIncidents: Incidentes Activos
+  allSystemsOperational: Todos los sistemas están funcionando con normalidad
+  incidentReport: Reporte de incidente
+  pastIncidents: Incidentes Anteriores
+  rates: Uptime
+  responseTime: Tiempo de respuesta
+  theme: Tema
+  uptime: Uptime general

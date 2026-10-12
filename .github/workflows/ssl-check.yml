@@ -1,0 +1,68 @@
+name: SSL Certificate Expiration Check
+
+on:
+  schedule:
+    # Ejecuta todos los días a las 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  check-ssl:
+    name: Validar expiración de certificados SSL (Aviso 14 días)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar expiración de certificados
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DOMAINS=("contastack.app" "app.contastack.app")
+          THRESHOLD_DAYS=14
+
+          for DOMAIN in "${DOMAINS[@]}"; do
+            echo "----------------------------------------"
+            echo "Verificando certificado para: $DOMAIN"
+            
+            # Obtener fecha de expiración mediante OpenSSL
+            EXPIRY_DATE=$(echo | openssl s_client -servername "$DOMAIN" -connect "$DOMAIN:443" 2>/dev/null | openssl x509 -noout -enddate | cut -d= -f2)
+            
+            if [ -z "$EXPIRY_DATE" ]; then
+              echo "⚠️ Error: No se pudo obtener el certificado para $DOMAIN"
+              continue
+            fi
+
+            EXPIRY_EPOCH=$(date -d "$EXPIRY_DATE" +%s)
+            NOW_EPOCH=$(date +%s)
+            DIFF_SECONDS=$((EXPIRY_EPOCH - NOW_EPOCH))
+            DAYS_REMAINING=$((DIFF_SECONDS / 86400))
+
+            echo "Expira el: $EXPIRY_DATE"
+            echo "Días restantes: $DAYS_REMAINING días"
+
+            if [ "$DAYS_REMAINING" -le "$THRESHOLD_DAYS" ]; then
+              echo "🚨 ALERTA: El certificado para $DOMAIN expira en $DAYS_REMAINING días (umbral: $THRESHOLD_DAYS días)."
+              
+              TITLE="🚨 Alerta SSL: El certificado de $DOMAIN expira en $DAYS_REMAINING días"
+              BODY="### ⚠️ Atención requerida: Renovación de Certificado SSL
+
+El certificado TLS/SSL para el dominio **$DOMAIN** expirará pronto:
+- **Dominio:** \`$DOMAIN\`
+- **Fecha de expiración:** $EXPIRY_DATE
+- **Días restantes:** $DAYS_REMAINING días (límite de advertencia: $THRESHOLD_DAYS días)
+
+Por favor, revisa la renovación automática en tu proveedor de hosting (Let's Encrypt / Cloudflare / Vercel / Nginx) para evitar interrupciones en el servicio a los clientes."
+
+              # Crear o actualizar un Issue en GitHub
+              EXISTING_ISSUE=$(gh issue list --search "$DOMAIN SSL" --json number -q '.[0].number')
+              if [ -z "$EXISTING_ISSUE" ]; then
+                gh issue create --title "$TITLE" --body "$BODY" --label "ssl,alert"
+              else
+                gh issue comment "$EXISTING_ISSUE" --body "Recordatorio diario: Quedan $DAYS_REMAINING días para la expiración del certificado."
+              fi
+            else
+              echo "✅ Certificado válido. Quedan $DAYS_REMAINING días (mayor al umbral de $THRESHOLD_DAYS días)."
+            fi
+          done
