@@ -41,17 +41,19 @@
     "icon": "https://contastack.app/favicon.ico",
     "slug": "core-api-and-base-de-datos",
     "status": "up",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 160,
-    "timeDay": 160,
-    "timeWeek": 160,
-    "timeMonth": 160,
-    "timeYear": 160,
-    "dailyMinutesDown": {}
+    "uptime": "91.73%",
+    "uptimeDay": "91.73%",
+    "uptimeWeek": "91.73%",
+    "uptimeMonth": "91.73%",
+    "uptimeYear": "91.73%",
+    "time": 223,
+    "timeDay": 223,
+    "timeWeek": 223,
+    "timeMonth": 223,
+    "timeYear": 223,
+    "dailyMinutesDown": {
+      "2026-10-12": 45
+    }
   },
   {
     "name": "🔐 Servicio de Autenticación (Clerk Portal)",
@@ -131,16 +133,18 @@
     "icon": "https://contastack.app/favicon.ico",
     "slug": "almacenamiento-de-multimedia-e-imagenes",
     "status": "up",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 113,
-    "timeDay": 113,
-    "timeWeek": 113,
-    "timeMonth": 113,
-    "timeYear": 113,
-    "dailyMinutesDown": {}
+    "uptime": "91.76%",
+    "uptimeDay": "91.76%",
+    "uptimeWeek": "91.76%",
+    "uptimeMonth": "91.76%",
+    "uptimeYear": "91.76%",
+    "time": 202,
+    "timeDay": 202,
+    "timeWeek": 202,
+    "timeMonth": 202,
+    "timeYear": 202,
+    "dailyMinutesDown": {
+      "2026-10-12": 45
+    }
   }
 ]
